@@ -13,3 +13,26 @@
  *= require_tree .
  *= require_self
  */
+* {
+  box-sizing: border-box;
+}
+
+.carousel-item {
+  height: 500px;
+}
+
+.carousel img {
+  position: absolute;
+  width: 100%;
+  top: -200px;
+}
+.row {
+  padding-top: 50px;
+}
+.target {
+  font-size: 40px;
+}
+
+.container a {
+  margin-top: 20px;
+}
