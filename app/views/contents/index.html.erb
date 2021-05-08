@@ -1,0 +1,133 @@
+<header>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">my-study</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item active">
+            <a class="nav-link" aria-current="page" href="#">みんなの目標</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">ほり</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">ログアウト</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">ログイン</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">サインアップ</a>
+          </li>
+          <%# <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">ほり</a>
+          </li> %>
+        </ul>
+        <%# <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="検索" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form> %>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"></li>
+      <li data-bs-target="#myCarousel" data-bs-slide-to="1"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+      <img src="<%= asset_path "aaron-burden-4eWwSxaDhe4-unsplash.jpg" %>" alt="メイン画面" class="d-block w-100">
+        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
+
+        <div class="container">
+          <div class="carousel-caption text-start">
+            <h1>継続する事</h1>
+            <p>目標に向かって、切磋琢磨しあえるコミュニティ。学習につまずいた時、嫌になって諦めたくなった時、支えになるのは同じ志を持った仲間たち。</p>
+            <p><a class="btn btn-lg btn-warning" href="#" role="button">今すぐサインアップ</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="<%= asset_path "jon-flobrant-Cg9QlLuX120-unsplash.jpg" %>" alt="メイン画面" class="d-block w-100">
+        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
+
+        <div class="container">
+          <div class="carousel-caption">
+            <h1>みんなの目標</h1>
+            <p>同じ志を持った仲間たちから刺激をもらおう。コメントをして交流してみよう。</p>
+            <p><a class="btn btn-lg btn-warning" href="#" role="button">みんなの目標</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#myCarousel" role="button" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">前へ</span>
+    </a>
+    <a class="carousel-control-next" href="#myCarousel" role="button" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">次へ</span>
+    </a>
+  </div>
+
+  <!-- Marketing messaging and featurettes
+  ================================================== -->
+  <!-- Wrap the rest of the page in another container to center all the content. -->
+
+  <div class="container marketing">
+    <!-- Three columns of text below the carousel -->
+    <p><a class="btn btn-lg btn-warning" href="#" role="button">目標を追加</a></p>
+
+    <div class="row">
+      <div class="col-lg-4 ">
+        <svg class="bd-placeholder-img rounded-pill mb-2" width="300" height="100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#64dfdf"></rect><text class="target" x="50%" y="50%"  dy=".3em">目標</text></svg>
+        <h2>いつまで</h2>
+        <h2>残りの時間</h2>
+        <p>info</p>
+        <form>
+          <p>本日の学習時間を入力</p>
+          <input type="number">
+          <input type="submit" value="更新">
+        </form>
+        <p><a class="btn btn-secondary mt-2" href="#" role="button">詳細 »</a></p>
+      </div><!-- /.col-lg-4 -->
+    </div><!-- /.row -->
+
+    <!-- START THE FEATURETTES -->
+
+    <hr class="featurette-divider">
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading">目標<span class="text-muted">ニックネーム</span></h2>
+        <p class="lead">info</p>
+      </div>
+      <div class="col-md-5">
+        <img src="<%= asset_path "leon-8wH1NjFthaY-unsplash.jpg" %>" alt="メイン画面" class="d-block w-100">
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+    <div class="row featurette">
+      <div class="col-md-7 order-md-2">
+        <h2 class="featurette-heading">目標<span class="text-muted">ニックネーム</span></h2>
+        <p class="lead">info</p>
+      </div>
+      <div class="col-md-5 order-md-1">
+        <img src="<%= asset_path "eric-kane-X-MbINOd9kY-unsplash.jpg" %>" alt="メイン画面" class="d-block w-100">
+      </div>
+    </div>
+    <!-- /END THE FEATURETTES -->
+  </div><!-- /.container -->
+
+  <!-- FOOTER -->
+  <footer class="container pt-5">
+    <p class="float-end"><a href="#">トップに戻る</a></p>
+    <p>© 2017-2021 Company, Inc. · <a href="#">プライバシー</a> · <a href="#">利用規約</a></p>
+  </footer>
