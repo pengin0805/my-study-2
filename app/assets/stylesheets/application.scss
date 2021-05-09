@@ -19,13 +19,13 @@
 }
 
 .carousel-item {
-  height: 500px;
+  height: 60vh;
 }
 
-.carousel img {
+.carousel-item img {
   position: absolute;
   width: 100%;
-  top: -200px;
+  height: 100%;
 }
 .row {
   padding-top: 50px;
