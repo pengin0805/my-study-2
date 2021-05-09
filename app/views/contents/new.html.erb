@@ -1,0 +1,69 @@
+<header>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container-fluid">
+      <%= link_to 'my-study',root_path, class: "navbar-brand" %>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item active">
+            <a class="nav-link" aria-current="page" href="#">みんなの目標</a>
+          </li>
+          <% if user_signed_in? %>
+          <li class="nav-item">
+            <a class="nav-link" href="#">ほり</a>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'ログアウト',destroy_user_session_path, method: :delete, class: "nav-link" %>
+          </li>
+          <% else %>
+          <li class="nav-item">
+            <%= link_to 'ログイン',new_user_session_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'サインアップ',new_user_registration_path, class: "nav-link" %>
+          </li>
+          <% end %>
+          <%# <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">ほり</a>
+          </li> %>
+        </ul>
+        <%# <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="検索" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form> %>
+      </div>
+    </div>
+  </nav>
+</header>
+<main>
+  <div class="new-content">
+    <h1>学習内容を追加する</h1>
+    <%= form_with model: @content, url:contents_path, local: true do |f| %>
+      <div class="form-group">
+        <label>〈目標〉</label>
+        <%= f.text_field :target_name, class:"form-control", placeholder:"資格取得など" %>
+      </div>
+      <div class="form-group">
+        <label>〈いつまで〉</label>
+        <%= f.date_field :target_date, class:"form-control" %>
+      </div>
+      <div class="form-group">
+        <label>〈目標学習時間〉</label>
+        <%= f.number_field :study_time, class:"form-control" %>
+      </div>
+      <div class="form-group">
+        <label>〈内容〉</label>
+        <%= f.text_area :target_info, class:"form-control" %>
+      </div>
+      <button type="submit" class="btn btn-primary">目標の追加</button>
+    <% end %>
+  </div>
+</main>
+
+  <!-- FOOTER -->
+  <footer class="container pt-5">
+    <p class="float-end"><a href="#">トップに戻る</a></p>
+    <p>© 2017-2021 Company, Inc. · <a href="#">プライバシー</a> · <a href="#">利用規約</a></p>
+  </footer>
