@@ -12,7 +12,7 @@
           </li>
           <% if user_signed_in? %>
           <li class="nav-item">
-            <a class="nav-link" href="#">ほり</a>
+            <a class="nav-link" href="#"><%= current_user.nickname%></a>
           </li>
           <li class="nav-item">
             <%= link_to 'ログアウト',destroy_user_session_path, method: :delete, class: "nav-link" %>
@@ -37,31 +37,27 @@
     </div>
   </nav>
 </header>
-<main>
-  <div class="new-content">
-    <h1>学習内容を追加する</h1>
-    <%= form_with model: @content, local: true do |f| %>
-      <div class="form-group">
-        <label>〈目標〉</label>
-        <%= f.text_field :target_name, class:"form-control", placeholder:"◯◯の資格取得など（必須 10文字以内）", maxlength:"10"%>
-      </div>
-      <div class="form-group">
-        <label>〈いつまで〉</label>
-        <%= f.date_field :target_date, class:"form-control" %>
-      </div>
-      <div class="form-group">
-        <label>〈目標学習時間〉</label>
-        <%= f.number_field :study_time, class:"form-control" %>
-      </div>
-      <div class="form-group">
-        <label>〈内容〉</label>
-        <%= f.text_area :target_info, class:"form-control" %>
-      </div>
-      <button type="submit" class="btn btn-primary">目標の追加</button>
-    <% end %>
-  </div>
-</main>
 
+<main>
+  <div class="container show pt-5">
+    <!-- Three columns of text below the carousel -->
+    <% if user_signed_in? %>
+    <div class="row">
+      <div class="col-lg-4 ">
+        <svg class="bd-placeholder-img rounded-pill mb-2 " width="300" height="80" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#64dfdf"></rect><text class="target" x="10%" y="50%"  dy=".5em"><%= @content.target_name %></text></svg>
+        <h3>目標：<%= @content.target_date.strftime(" %y年 %-m月 %d日") %></h3>
+        <h2>残り：<%= @content.study_time %>時間</h2>
+        <p><%= @content.target_info %></p>
+        <a><%= link_to '編集',edit_content_path(@content.id), class: "btn btn-secondary mt-2 mr-2", role: "button" %></a>
+        <a><%= link_to '削除',content_path(@content.id), method: :delete, class: "btn btn-secondary mt-2", role: "button" %></a>
+      </div>
+      <% end %>
+    </div><!-- /.row -->
+    <!-- START THE FEATURETTES -->
+
+    <%# end %>
+    <!-- /END THE FEATURETTES -->
+  </div><!-- /.container -->
   <!-- FOOTER -->
   <footer class="container pt-5">
     <p class="float-end"><a href="#">トップに戻る</a></p>

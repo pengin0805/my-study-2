@@ -12,7 +12,7 @@
           </li>
           <% if user_signed_in? %>
           <li class="nav-item">
-            <a class="nav-link" href="#">ほり</a>
+            <a class="nav-link" href="#"><%= current_user.nickname%></a>
           </li>
           <li class="nav-item">
             <%= link_to 'ログアウト',destroy_user_session_path, method: :delete, class: "nav-link" %>
@@ -88,48 +88,62 @@
 
   <div class="container marketing">
     <!-- Three columns of text below the carousel -->
+    <% if user_signed_in? %>
     <p><%= link_to '目標を追加',new_content_path, class: "btn btn-lg btn-warning", role: "button" %></p>
     <div class="row">
+      <% @my_contents.each do |content| %>
       <div class="col-lg-4 ">
-        <svg class="bd-placeholder-img rounded-pill mb-2" width="300" height="100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#64dfdf"></rect><text class="target" x="50%" y="50%"  dy=".3em">目標</text></svg>
-        <h2>いつまで</h2>
-        <h2>残りの時間</h2>
-        <p>info</p>
+        <%= link_to content_path(content.id) do %>
+        <svg class="bd-placeholder-img rounded-pill mb-2 " width="300" height="80" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#64dfdf"></rect><text class="target" x="10%" y="50%"  dy=".5em"><%= content.target_name %></text></svg>
+        <% end %>
+        <h3>目標：<%= content.target_date.strftime(" %y年 %-m月 %d日") %></h3>
+        <h2>残り：<%= content.study_time %>時間</h2>
+        <p><%= content.target_info %></p>
         <form>
           <p>本日の学習時間を入力</p>
           <input type="number">
           <input type="submit" value="更新">
         </form>
-        <p><a class="btn btn-secondary mt-2" href="#" role="button">詳細 »</a></p>
-      </div><!-- /.col-lg-4 -->
+        <p><%= link_to '詳細',content_path(content.id), class: "btn btn-secondary mt-2", role: "button" %></p>
+      </div>
+      <% end %>
     </div><!-- /.row -->
-
+    <% end %><!-- /.col-lg-4 --> 
     <!-- START THE FEATURETTES -->
 
+    <h2 class="mt-5">みんなの目標（ピックアップ）</h2>
+    <%# @content.each do |content| %>
     <hr class="featurette-divider">
     <div class="row featurette">
       <div class="col-md-7">
-        <h2 class="featurette-heading">目標<span class="text-muted">ニックネーム</span></h2>
-        <p class="lead">info</p>
+        <span class="text-muted"><%=@content.user.nickname%></span>
+        <h2 class="featurette-heading"><%=@content.target_name%></h2>
+        <h3>目標：<%= @content.target_date.strftime(" %y年 %-m月 %d日") %></h3>
+        <h2>残り：<%= @content.study_time %>時間</h2>
+        <p class="lead"><%=@content.target_info%></p>
       </div>
       <div class="col-md-5">
         <img src="<%= asset_path "leon-8wH1NjFthaY-unsplash.jpg" %>" alt="メイン画面" class="d-block w-100">
       </div>
     </div>
-
+    <%# end %>
+    <%# @content2.each do |content| %>
     <hr class="featurette-divider">
     <div class="row featurette">
       <div class="col-md-7 order-md-2">
-        <h2 class="featurette-heading">目標<span class="text-muted">ニックネーム</span></h2>
-        <p class="lead">info</p>
+        <span class="text-muted"><%=@content2.user.nickname%></span>
+        <h2 class="featurette-heading"><%=@content2.target_name%></h2>
+        <h3>目標：<%= @content2.target_date.strftime(" %y年 %-m月 %d日") %></h3>
+        <h2>残り：<%= @content2.study_time %>時間</h2>
+        <p class="lead"><%=@content2.target_info%></p>
       </div>
       <div class="col-md-5 order-md-1">
         <img src="<%= asset_path "eric-kane-X-MbINOd9kY-unsplash.jpg" %>" alt="メイン画面" class="d-block w-100">
       </div>
     </div>
+    <%# end %>
     <!-- /END THE FEATURETTES -->
   </div><!-- /.container -->
-
   <!-- FOOTER -->
   <footer class="container pt-5">
     <p class="float-end"><a href="#">トップに戻る</a></p>

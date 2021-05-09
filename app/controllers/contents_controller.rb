@@ -1,5 +1,11 @@
 class ContentsController < ApplicationController
   def index
+    @contents = Content.all
+    if user_signed_in?
+      @my_contents = Content.where(user_id: current_user.id)
+    end
+    @content = Content.where('id>=?',rand(Content.first.id..Content.last.id)).first
+    @content2 = Content.where('id>=?',rand(Content.first.id..Content.last.id)).first
   end
 
   def new
@@ -12,6 +18,32 @@ class ContentsController < ApplicationController
       redirect_to root_path
     end
   end
+
+  def show
+    @content = Content.find(params[:id])
+  end
+
+  def edit
+    @content = Content.find(params[:id])
+  end
+
+  def update
+    @content = Content.find(params[:id])
+    if  @content.update(content_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @content = Content.find(params[:id])
+    if  @content.destroy
+      redirect_to root_path
+    end
+  end
+
+
 
   private
 
