@@ -53,7 +53,9 @@
           <div class="carousel-caption text-start">
             <h1>継続する事</h1>
             <p>目標に向かって、切磋琢磨しあえるコミュニティ。学習につまずいた時、嫌になって諦めたくなった時、支えになるのは同じ志を持った仲間たち。</p>
-            <p><a class="btn btn-lg btn-warning" href="#" role="button">今すぐサインアップ</a></p>
+            <% unless user_signed_in? %>
+            <p><%= link_to '今すぐサインアップ',new_user_registration_path, class: "btn btn-lg btn-warning", role: "button" %></p>
+            <% end %>
           </div>
         </div>
       </div>
