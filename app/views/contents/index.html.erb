@@ -113,6 +113,7 @@
 
     <h2 class="mt-5">みんなの目標（ピックアップ）</h2>
     <%# @content.each do |content| %>
+    <% if @contents.nil? %>
     <hr class="featurette-divider">
     <div class="row featurette">
       <div class="col-md-7">
@@ -141,6 +142,7 @@
         <img src="<%= asset_path "eric-kane-X-MbINOd9kY-unsplash.jpg" %>" alt="メイン画面" class="d-block w-100">
       </div>
     </div>
+    <% end %>
     <%# end %>
     <!-- /END THE FEATURETTES -->
   </div><!-- /.container -->

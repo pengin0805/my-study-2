@@ -4,8 +4,10 @@ class ContentsController < ApplicationController
     if user_signed_in?
       @my_contents = Content.where(user_id: current_user.id)
     end
+    if @contents.nil?
     @content = Content.where('id>=?',rand(Content.first.id..Content.last.id)).first
     @content2 = Content.where('id>=?',rand(Content.first.id..Content.last.id)).first
+    end
     # if  content.update(study_time:)
     #   redirect_to root_path
     # end
