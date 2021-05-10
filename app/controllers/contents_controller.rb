@@ -26,6 +26,8 @@ class ContentsController < ApplicationController
 
   def show
     @content = Content.find(params[:id])
+    @comment = Comment.new
+    @comments = @content.comments.includes(:user)
   end
 
   def edit
