@@ -85,10 +85,10 @@
   <!-- Marketing messaging and featurettes
   ================================================== -->
   <!-- Wrap the rest of the page in another container to center all the content. -->
-
   <div class="container marketing">
     <!-- Three columns of text below the carousel -->
     <% if user_signed_in? %>
+    <h2 class="mt-5 text-center border-bottom ">私の目標</h2>
     <p><%= link_to '目標を追加',new_content_path, class: "btn btn-lg btn-warning", role: "button" %></p>
     <div class="row">
       <% @my_contents.each do |content| %>
@@ -102,7 +102,7 @@
         <%= form_with url: study_content_path(content.id), method: :patch do |f| %>
           本日の学習時間を入力
         　<%= f.number_field :study_time, class:"form-control"%>
-          <button type="submit" class="btn btn-primary">更新</button>
+          <button type="submit" class="btn btn-primary mt-2">更新</button>
         <% end %>
         <p><%= link_to '詳細',content_path(content.id), class: "btn btn-secondary mt-2", role: "button" %></p>
       </div>
@@ -111,7 +111,7 @@
     <% end %><!-- /.col-lg-4 --> 
     <!-- START THE FEATURETTES -->
 
-    <h2 class="mt-5">みんなの目標（ピックアップ）</h2>
+    <h2 class="mt-5 text-center ">みんなの目標（ピックアップ）</h2>
     <%# @content.each do |content| %>
     <% if @contents.present? %>
     <hr class="featurette-divider">
