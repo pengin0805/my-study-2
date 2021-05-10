@@ -6,6 +6,9 @@ class ContentsController < ApplicationController
     end
     @content = Content.where('id>=?',rand(Content.first.id..Content.last.id)).first
     @content2 = Content.where('id>=?',rand(Content.first.id..Content.last.id)).first
+    # if  content.update(study_time:)
+    #   redirect_to root_path
+    # end
   end
 
   def new
@@ -43,12 +46,20 @@ class ContentsController < ApplicationController
     end
   end
 
+  def study
+    content = Content.find(params[:id])
+    remaining = content.study_time -  params[:study_time].to_i
+    if content.update(study_time: remaining)
+      redirect_to root_path
+    end
+  end
+
 
 
   private
 
   def content_params
-    params.require(:content).permit(:target_name, :target_info, :target_date, :study_time).merge(user_id: current_user.id)
+    params.require(:content).permit(:target_name, :target_info, :target_date, :study_time, remaining).merge(user_id: current_user.id)
   end
 
 
