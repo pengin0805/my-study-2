@@ -1,6 +1,6 @@
 class ContentsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
-  before_action :move_to_index, only: [:show, :edit, :update, :destroy, :study]
+  before_action :move_to_index, only: [:edit, :update, :destroy, :study]
 
   def index
     @contents = Content.all
@@ -30,7 +30,7 @@ class ContentsController < ApplicationController
   def show
     @content = Content.find(params[:id])
     @comment = Comment.new
-    @comments = @content.comments.includes(:user)
+    @comments = @content.comments.includes(:user).order('created_at DESC')
   end
 
   def edit

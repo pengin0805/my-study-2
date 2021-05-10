@@ -48,8 +48,10 @@
         <h3>目標：<%= @content.target_date.strftime(" %y年 %-m月 %d日") %></h3>
         <h3>残り：<%= @content.study_time %>時間</h3>
         <h5><%= @content.target_info %></h5>
+        <% if current_user.id == @content.user_id%>
         <a><%= link_to '編集',edit_content_path(@content.id), class: "btn btn-secondary mt-2 mr-2", role: "button" %></a>
         <a><%= link_to '削除',content_path(@content.id), method: :delete, class: "btn btn-secondary mt-2", role: "button" %></a>
+        <% end %>
       </div>
       <% end %>
     </div><!-- /.row -->

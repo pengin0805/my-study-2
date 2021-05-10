@@ -122,6 +122,7 @@
         <h3>目標：<%= @content.target_date.strftime(" %y年 %-m月 %d日") %></h3>
         <h3>残り：<%= @content.study_time %>時間</h3>
         <h5 class="lead">内容：<%=@content.target_info%></h5>
+        <p><%= link_to '詳細',content_path(@content.id), class: "btn btn-secondary mt-2", role: "button" %></p>
       </div>
       <div class="col-md-5">
         <img src="<%= asset_path "leon-8wH1NjFthaY-unsplash.jpg" %>" alt="メイン画面" class="d-block w-100">
@@ -137,6 +138,7 @@
         <h3>目標：<%= @content2.target_date.strftime(" %y年 %-m月 %d日") %></h3>
         <h3>残り：<%= @content2.study_time %>時間</h3>
         <h5 class="lead">内容：<%=@content.target_info%></h5>
+        <p><%= link_to '詳細',content_path(@content2.id), class: "btn btn-secondary mt-2", role: "button" %></p>
       </div>
       <div class="col-md-5 order-md-1">
         <img src="<%= asset_path "eric-kane-X-MbINOd9kY-unsplash.jpg" %>" alt="メイン画面" class="d-block w-100">
