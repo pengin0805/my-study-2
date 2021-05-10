@@ -1,4 +1,7 @@
 class ContentsController < ApplicationController
+  before_action :authenticate_user!, except: [:index]
+  before_action :move_to_index, only: [:show, :edit, :update, :destroy, :study]
+
   def index
     @contents = Content.all
     if user_signed_in?
@@ -64,6 +67,12 @@ class ContentsController < ApplicationController
 
   def content_params
     params.require(:content).permit(:target_name, :target_info, :target_date, :study_time).merge(user_id: current_user.id)
+  end
+
+  def move_to_index
+    unless current_user.id == Content.find(params[:id]).user_id
+      redirect_to root_path
+    end
   end
 
 
