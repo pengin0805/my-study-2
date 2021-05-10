@@ -113,7 +113,7 @@
 
     <h2 class="mt-5">みんなの目標（ピックアップ）</h2>
     <%# @content.each do |content| %>
-    <% if @contents.nil? %>
+    <% if @contents.present? %>
     <hr class="featurette-divider">
     <div class="row featurette">
       <div class="col-md-7">

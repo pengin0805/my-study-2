@@ -4,7 +4,7 @@ class ContentsController < ApplicationController
     if user_signed_in?
       @my_contents = Content.where(user_id: current_user.id)
     end
-    if @contents.nil?
+    if @contents.present?
     @content = Content.where('id>=?',rand(Content.first.id..Content.last.id)).first
     @content2 = Content.where('id>=?',rand(Content.first.id..Content.last.id)).first
     end
@@ -61,7 +61,7 @@ class ContentsController < ApplicationController
   private
 
   def content_params
-    params.require(:content).permit(:target_name, :target_info, :target_date, :study_time, remaining).merge(user_id: current_user.id)
+    params.require(:content).permit(:target_name, :target_info, :target_date, :study_time).merge(user_id: current_user.id)
   end
 
 
