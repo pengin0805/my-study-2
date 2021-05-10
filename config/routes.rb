@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
-  get 'contents/indes'
   root to: "contents#index"
+  resources :contents do
+    member do
+      patch :study
+    end
+  end
 end
