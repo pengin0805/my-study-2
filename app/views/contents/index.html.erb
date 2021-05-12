@@ -8,8 +8,17 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
           <li class="nav-item active">
-            <a class="nav-link" aria-current="page" href="#">みんなの目標</a>
+            <a class="nav-link" aria-current="page" href="#page-bottom">みんなの目標</a>
+            <script type="text/javascript">
+              $('a[href="#page-bottom"]').on('click',function(){
+                $('html,body').animate(
+                  {scrollTop: $('body').get(0).scrollHeight},
+                );
+              });
+            </script>
           </li>
+
+
           <% if user_signed_in? %>
           <li class="nav-item">
             <a class="nav-link" href="#"><%= current_user.nickname%></a>
@@ -53,6 +62,12 @@
           <div class="carousel-caption text-start">
             <h1>継続する事</h1>
             <p>目標に向かって、切磋琢磨しあえるコミュニティ。学習につまずいた時、嫌になって諦めたくなった時、支えになるのは同じ志を持った仲間たち。</p>
+            <p>テスト</p>
+            <%# <script type="text/javascript">
+              $(document).ready(function() {
+                $("p").text("成功！！");
+              });
+            </script> %>
             <% unless user_signed_in? %>
             <p><%= link_to '今すぐサインアップ',new_user_registration_path, class: "btn btn-lg btn-warning", role: "button" %></p>
             <% end %>
@@ -67,8 +82,16 @@
           <div class="carousel-caption">
             <h1>みんなの目標</h1>
             <p>同じ志を持った仲間たちから刺激をもらおう。コメントをして交流してみよう。</p>
-            <p><a class="btn btn-lg btn-warning" href="#" role="button">みんなの目標</a></p>
+            <p><a class="btn btn-lg btn-warning" href="#page-bottom" role="button">みんなの目標</a></p>
+            <script type="text/javascript">
+              $('a[href="#page-bottom"]').on('click',function(){
+                $('html,body').animate(
+                  {scrollTop: $('body').get(0).scrollHeight},
+                );
+              });
+            </script>
           </div>
+          
         </div>
       </div>
     </div>
