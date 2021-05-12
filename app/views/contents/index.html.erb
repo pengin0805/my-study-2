@@ -9,13 +9,6 @@
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
           <li class="nav-item active">
             <a class="nav-link" aria-current="page" href="#page-bottom">みんなの目標</a>
-            <script type="text/javascript">
-              $('a[href="#page-bottom"]').on('click',function(){
-                $('html,body').animate(
-                  {scrollTop: $('body').get(0).scrollHeight},
-                );
-              });
-            </script>
           </li>
 
 
@@ -83,13 +76,6 @@
             <h1>みんなの目標</h1>
             <p>同じ志を持った仲間たちから刺激をもらおう。コメントをして交流してみよう。</p>
             <p><a class="btn btn-lg btn-warning" href="#page-bottom" role="button">みんなの目標</a></p>
-            <script type="text/javascript">
-              $('a[href="#page-bottom"]').on('click',function(){
-                $('html,body').animate(
-                  {scrollTop: $('body').get(0).scrollHeight},
-                );
-              });
-            </script>
           </div>
           
         </div>
@@ -176,3 +162,12 @@
     <p class="float-end"><a href="#">トップに戻る</a></p>
     <p>© 2017-2021 Company, Inc. · <a href="#">プライバシー</a> · <a href="#">利用規約</a></p>
   </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      $('a[href="#page-bottom"]').on('click',function(){
+        $('html,body').animate(
+          {scrollTop: $('body').get(0).scrollHeight},
+        );
+      });
+    </script>
+
