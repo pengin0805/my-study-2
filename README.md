@@ -28,11 +28,6 @@ https://my-study-2.herokuapp.com/
 [![Image from Gyazo](https://i.gyazo.com/05afc0b2f09f994987dafb0de7b9ba37.gif)](https://gyazo.com/05afc0b2f09f994987dafb0de7b9ba37)
 みんなの目標（他のユーザーの学習目標）の詳細ページから、ニックネーム付きでコメント投稿できます。
 
-## ②カレンダー
-[![Image from Gyazo](https://i.gyazo.com/d08aef8f74ff2f128fae615333af615a.png)](https://gyazo.com/d08aef8f74ff2f128fae615333af615a)
-ドリルを行った日にカレンダーの日付が水色に塗られます。<br>
-毎日の学習を習慣づける（カレンダーの日付に色を塗りたい？）<br>
-ための機能です。
 
 # DB設計
 ## users テーブル
